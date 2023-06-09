@@ -37,7 +37,8 @@ public class ArchivoServiceImpl implements ArchivoService {
         equipo.setEntrenador(entrenadorService.crearEntrenador());
         equipo.setNombre(equipoNombre);
 
-        try (BufferedReader br = new BufferedReader(new FileReader(".../resources/" + (nombreArchivo)))) {
+        try (BufferedReader br = new BufferedReader(
+                new FileReader("src/main/java/com/informatorio/resources/" + (nombreArchivo)))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 // Procesar cada línea del archivo
