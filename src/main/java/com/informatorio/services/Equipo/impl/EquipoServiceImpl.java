@@ -1,6 +1,7 @@
 package com.informatorio.services.Equipo.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -141,4 +142,25 @@ public class EquipoServiceImpl implements EquipoService {
         }
         scanner.close();
     }
+
+    @Override
+    public void eliminarEquipo() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("INGRESE EL NOMBRE DEL EQUIPO: ");
+        String equipoNombre = scanner.next();
+        scanner.close();
+        Iterator<Equipo> iterator = equipos.iterator();
+        while (iterator.hasNext()) {
+            Equipo equipo = iterator.next();
+            if (equipo.getNombre().equalsIgnoreCase(equipoNombre)) {
+                iterator.remove();
+                System.out.println("Equipo eliminado: " + equipo.getNombre());
+                return;
+            }
+        }
+        System.out.println("No se encontró ningún equipo con el nombre proporcionado.");
+
+    }
+
 }
