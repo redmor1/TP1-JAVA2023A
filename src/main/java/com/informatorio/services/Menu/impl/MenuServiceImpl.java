@@ -35,7 +35,7 @@ public class MenuServiceImpl implements MenuService {
                     equipoService.buscarJugador();
                     break;
                 case 3:
-                    // equipoService.buscarEquipo();
+                    equipoService.buscarEquipo();
                     break;
             }
         }

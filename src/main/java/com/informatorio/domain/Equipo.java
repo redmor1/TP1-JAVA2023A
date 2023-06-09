@@ -51,4 +51,16 @@ public class Equipo {
         this.fechaCreacion = fechaCreacion;
         this.entrenador = entrenador;
     }
+
+    @Override
+    public String toString() {
+        String str = "Equipo: " + getNombre() + "\n";
+        str += "Entrenador: " + getEntrenador().getNombre() + getEntrenador().getApellido() + "\n";
+        str += "Jugadores: " + "\n";
+        for (Jugador jugador : jugadores) {
+            str += jugador.getNumeroCamiseta() + jugador.getNombre() + jugador.getApellido() + jugador.getPosicion()
+                    + "\n";
+        }
+        return str;
+    }
 }
