@@ -10,7 +10,7 @@ public class EntrenadorServiceImpl implements EntrenadorService {
     @Override
     public Entrenador crearEntrenador() {
         Scanner scanner = new Scanner(System.in);
-        
+
         System.out.print("INGRESE EL NOMBRE DEL ENTRENADOR: ");
         String entrenadorNombre = scanner.next();
 
@@ -22,8 +22,7 @@ public class EntrenadorServiceImpl implements EntrenadorService {
 
         Entrenador entrenador = new Entrenador(entrenadorNombre, entrenadorApellido, entrenadorEdad);
 
-        scanner.close();
         return entrenador;
     }
-    
+
 }

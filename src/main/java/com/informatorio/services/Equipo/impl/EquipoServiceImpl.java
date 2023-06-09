@@ -49,7 +49,7 @@ public class EquipoServiceImpl implements EquipoService {
                 System.out.print("DESEA CREAR MAS JUGADORES? (Y/N): ");
                 String respuesta = scanner.next();
                 if (respuesta.equalsIgnoreCase("Y")) {
-                    System.out.println("///////////////////////");
+                    System.out.print("///////////////////////");
                     continue;
                 } else {
                     break;
@@ -72,7 +72,7 @@ public class EquipoServiceImpl implements EquipoService {
             }
 
         }
-        scanner.close();
+
     }
 
     @Override
@@ -81,30 +81,23 @@ public class EquipoServiceImpl implements EquipoService {
 
         System.out.print("INGRESE EL NOMBRE DEL JUGADOR: ");
         String jugadorNombre = scanner.next();
-        System.out.print("INGRESE EL APELLIDO DEL JUGADOR: ");
-        String jugadorApellido = scanner.next();
-        System.out.print("INGRESE LA POSICION DEL JUGADOR: ");
-        String jugadorPosicion = scanner.next();
-        System.out.print("EL JUGADOR ES CAPITAN? (Y/N): ");
-        String jugadorEsCapitanStr = scanner.next();
-        boolean jugadorEsCapitan = Boolean.parseBoolean(jugadorEsCapitanStr);
-        System.out.print("INGRESE EL EQUIPO DEL JUGADOR: ");
-        String jugadorEquipo = scanner.next();
+        // System.out.print("INGRESE EL APELLIDO DEL JUGADOR: ");
+        // String jugadorApellido = scanner.next();
+        // System.out.print("INGRESE LA POSICION DEL JUGADOR: ");
+        // String jugadorPosicion = scanner.next();
+        // System.out.print("EL JUGADOR ES CAPITAN? (Y/N): ");
+        // String jugadorEsCapitanStr = scanner.next();
+        // boolean jugadorEsCapitan = Boolean.parseBoolean(jugadorEsCapitanStr);
+        // System.out.print("INGRESE EL EQUIPO DEL JUGADOR: ");
+        // String jugadorEquipo = scanner.next();
 
         Jugador jugadorEncontrado = null;
         for (Equipo equipo : equipos) {
             for (Jugador jugador : equipo.getJugadores()) {
-                if (jugador.getNombre().equals(jugadorNombre) &&
-                        jugador.getApellido().equals(jugadorApellido) &&
-                        jugador.getPosicion().equals(jugadorPosicion) &&
-                        jugador.getEsCapitan() == jugadorEsCapitan &&
-                        jugador.getEquipo().getNombre().equals(jugadorEquipo)) {
+                if (jugador.getNombre().equalsIgnoreCase(jugadorNombre)) {
                     jugadorEncontrado = jugador;
                     break;
                 }
-            }
-            if (jugadorEncontrado != null) {
-                break;
             }
         }
 
@@ -114,7 +107,6 @@ public class EquipoServiceImpl implements EquipoService {
         } else {
             System.out.println("No se encontró el jugador.");
         }
-        scanner.close();
 
     }
 
@@ -126,21 +118,24 @@ public class EquipoServiceImpl implements EquipoService {
         String equipoNombre = scanner.next();
         System.out.print("INGRESE EL NOMBRE DEL ENTRENADOR: ");
         String equipoEntrenador = scanner.next();
-        System.out.print("INGRESE EL NOMBRE DEL CAPITAN DEL EQUIPO");
+        System.out.print("INGRESE EL NOMBRE DEL CAPITAN DEL EQUIPO: ");
         String equipoCapitan = scanner.next();
 
         for (Equipo equipo : equipos) {
-            if (equipo.getNombre().equalsIgnoreCase(equipoNombre)) {
-                if (equipo.getEntrenador().getNombre().equalsIgnoreCase(equipoEntrenador)) {
-                    for (Jugador jugador : jugadores) {
-                        if (jugador.getEsCapitan() && jugador.getNombre().equalsIgnoreCase(equipoCapitan)) {
-                            System.out.println(equipo.toString());
-                        }
+            if (equipo.getNombre().equalsIgnoreCase(equipoNombre) &&
+                    equipo.getEntrenador().getNombre().equalsIgnoreCase(equipoEntrenador)) {
+                boolean encontradoCapitan = false;
+                for (Jugador jugador : equipo.getJugadores()) {
+                    if (jugador.getEsCapitan() && jugador.getNombre().equalsIgnoreCase(equipoCapitan)) {
+                        encontradoCapitan = true;
+                        break;
                     }
+                }
+                if (encontradoCapitan) {
+                    System.out.println(equipo.toString());
                 }
             }
         }
-        scanner.close();
     }
 
     @Override
@@ -149,7 +144,6 @@ public class EquipoServiceImpl implements EquipoService {
 
         System.out.print("INGRESE EL NOMBRE DEL EQUIPO: ");
         String equipoNombre = scanner.next();
-        scanner.close();
         Iterator<Equipo> iterator = equipos.iterator();
         while (iterator.hasNext()) {
             Equipo equipo = iterator.next();
@@ -161,6 +155,11 @@ public class EquipoServiceImpl implements EquipoService {
         }
         System.out.println("No se encontró ningún equipo con el nombre proporcionado.");
 
+    }
+
+    @Override
+    public void agregarEquipoALista(Equipo equipo) {
+        equipos.add(equipo);
     }
 
 }

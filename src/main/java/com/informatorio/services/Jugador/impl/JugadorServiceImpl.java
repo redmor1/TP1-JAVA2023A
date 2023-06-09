@@ -11,9 +11,11 @@ public class JugadorServiceImpl implements JugadorService {
     @Override
     public Jugador crearJugador(Equipo equipo) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("///////////////////////");
+        System.out.println("////////////////////");
+        System.out.println("CREAR JUGADOR");
+        System.out.println("////////////////////");
         System.out.print("INGRESE EL DNI: ");
-        long jugadorDni = Integer.parseInt(scanner.next());
+        long jugadorDni = scanner.nextLong();
 
         System.out.print("INGRESE EL NOMBRE: ");
         String jugadorNombre = scanner.next();

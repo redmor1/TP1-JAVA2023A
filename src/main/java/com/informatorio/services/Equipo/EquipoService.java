@@ -1,5 +1,7 @@
 package com.informatorio.services.Equipo;
 
+import com.informatorio.domain.Equipo;
+
 public interface EquipoService {
 
     public void crearEquipo();
@@ -9,5 +11,7 @@ public interface EquipoService {
     public void buscarEquipo();
 
     public void eliminarEquipo();
+
+    public void agregarEquipoALista(Equipo equipo);
 
 }
