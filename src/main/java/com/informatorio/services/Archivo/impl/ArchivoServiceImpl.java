@@ -1,4 +1,4 @@
-package com.informatorio.services.Archivo;
+package com.informatorio.services.Archivo.impl;
 
 import java.io.File;
 import java.io.BufferedReader;
@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 import com.informatorio.domain.Equipo;
 import com.informatorio.domain.Jugador;
-import com.informatorio.services.Archivo.impl.ArchivoService;
+import com.informatorio.services.Archivo.ArchivoService;
 import com.informatorio.services.Entrenador.EntrenadorService;
 import com.informatorio.services.Entrenador.impl.EntrenadorServiceImpl;
 import com.informatorio.services.Equipo.EquipoService;
@@ -70,6 +70,7 @@ public class ArchivoServiceImpl implements ArchivoService {
         equipoService.agregarEquipoALista(equipo);
     }
 
+    @Override
     public void exportarListaJugadores() {
 
         Scanner scanner = new Scanner(System.in);

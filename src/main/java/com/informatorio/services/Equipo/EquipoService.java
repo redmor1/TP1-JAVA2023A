@@ -8,7 +8,9 @@ public interface EquipoService {
 
     public void buscarJugador();
 
-    public void buscarEquipo();
+    public void buscarEquipoYImprimir();
+
+    public Equipo buscarEquipo();
 
     public void eliminarEquipo();
 

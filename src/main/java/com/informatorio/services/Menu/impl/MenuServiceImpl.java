@@ -40,7 +40,7 @@ public class MenuServiceImpl implements MenuService {
                     equipoService.buscarJugador();
                     break;
                 case 3:
-                    equipoService.buscarEquipo();
+                    equipoService.buscarEquipoYImprimir();
                     break;
                 case 4:
                     equipoService.eliminarEquipo();
@@ -48,9 +48,9 @@ public class MenuServiceImpl implements MenuService {
                 case 5:
                     archivoService.importarListaJugadores();
                     break;
-                // case 6:
-                // archivoService.exportarListaJugadores();
-                // break;
+                case 6:
+                    archivoService.exportarListaJugadores();
+                    break;
                 case 7:
                     bucle = false;
                     break;

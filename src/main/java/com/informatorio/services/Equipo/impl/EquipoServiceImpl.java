@@ -111,7 +111,7 @@ public class EquipoServiceImpl implements EquipoService {
     }
 
     @Override
-    public void buscarEquipo() {
+    public void buscarEquipoYImprimir() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("INGRESE EL NOMBRE DEL EQUIPO: ");
@@ -136,6 +136,35 @@ public class EquipoServiceImpl implements EquipoService {
                 }
             }
         }
+    }
+
+    @Override
+    public Equipo buscarEquipo() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("INGRESE EL NOMBRE DEL EQUIPO: ");
+        String equipoNombre = scanner.next();
+        System.out.print("INGRESE EL NOMBRE DEL ENTRENADOR: ");
+        String equipoEntrenador = scanner.next();
+        System.out.print("INGRESE EL NOMBRE DEL CAPITAN DEL EQUIPO: ");
+        String equipoCapitan = scanner.next();
+
+        for (Equipo equipo : equipos) {
+            if (equipo.getNombre().equalsIgnoreCase(equipoNombre) &&
+                    equipo.getEntrenador().getNombre().equalsIgnoreCase(equipoEntrenador)) {
+                boolean encontradoCapitan = false;
+                for (Jugador jugador : equipo.getJugadores()) {
+                    if (jugador.getEsCapitan() && jugador.getNombre().equalsIgnoreCase(equipoCapitan)) {
+                        encontradoCapitan = true;
+                        break;
+                    }
+                }
+                if (encontradoCapitan) {
+                    return (equipo);
+                }
+            }
+        }
+        return null;
     }
 
     @Override
