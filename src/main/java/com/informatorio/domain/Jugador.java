@@ -2,8 +2,8 @@ package com.informatorio.domain;
 
 public class Jugador extends Persona {
     private long dni;
-    private int altura;
-    private Posicion posicion;
+    private String altura;
+    private String posicion;
     private int goles;
     private int partidosJugados;
     private boolean esCapitan;
@@ -18,19 +18,19 @@ public class Jugador extends Persona {
         this.dni = dni;
     }
 
-    public int getAltura() {
+    public String getAltura() {
         return altura;
     }
 
-    public void setAltura(int altura) {
+    public void setAltura(String altura) {
         this.altura = altura;
     }
 
-    public Posicion getPosicion() {
+    public String getPosicion() {
         return posicion;
     }
 
-    public void setPosicion(Posicion posicion) {
+    public void setPosicion(String posicion) {
         this.posicion = posicion;
     }
 
@@ -50,7 +50,7 @@ public class Jugador extends Persona {
         this.partidosJugados = partidosJugados;
     }
 
-    public boolean isEsCapitan() {
+    public boolean EsCapitan() {
         return esCapitan;
     }
 
@@ -74,11 +74,11 @@ public class Jugador extends Persona {
         this.equipo = equipo;
     }
 
-    public Jugador(String nombre, String apellido, long dni, int altura, String posicion, int goles, int partidosJugados, boolean esCapitan, int numeroCamiseta, Equipo equipo) {
+    public Jugador(String nombre, String apellido, long dni, String altura, String posicion, int goles, int partidosJugados, boolean esCapitan, int numeroCamiseta, Equipo equipo) {
         super(nombre, apellido);
         this.dni = dni;
         this.altura = altura;
-        this.posicion = new Posicion(posicion);
+        this.posicion = posicion;
         this.goles = goles;
         this.partidosJugados = partidosJugados;
         this.esCapitan = esCapitan;

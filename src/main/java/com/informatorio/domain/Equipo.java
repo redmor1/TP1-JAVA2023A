@@ -1,12 +1,12 @@
 package com.informatorio.domain;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 
 public class Equipo {
     private String nombre;
-    private List<Jugador> jugadores;
-    private LocalDate fechaCreacion;
+    private List<Jugador> jugadores = new ArrayList<>();
+    private String fechaCreacion;
     private Entrenador entrenador;
 
     public String getNombre() {
@@ -25,11 +25,11 @@ public class Equipo {
         this.jugadores = jugadores;
     }
 
-    public LocalDate getFechaCreacion() {
+    public String getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(LocalDate fechaCreacion) {
+    public void setFechaCreacion(String fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
@@ -45,9 +45,9 @@ public class Equipo {
 
     }
 
-    public Equipo(String nombre, List<Jugador> jugadores, LocalDate fechaCreacion, Entrenador entrenador) {
+    public Equipo(String nombre, String fechaCreacion, Entrenador entrenador) {
         this.nombre = nombre;
-        this.jugadores = jugadores;
+        this.jugadores = new ArrayList<>();
         this.fechaCreacion = fechaCreacion;
         this.entrenador = entrenador;
     }
