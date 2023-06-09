@@ -50,7 +50,7 @@ public class Jugador extends Persona {
         this.partidosJugados = partidosJugados;
     }
 
-    public boolean EsCapitan() {
+    public boolean getEsCapitan() {
         return esCapitan;
     }
 
@@ -74,7 +74,8 @@ public class Jugador extends Persona {
         this.equipo = equipo;
     }
 
-    public Jugador(String nombre, String apellido, long dni, String altura, String posicion, int goles, int partidosJugados, boolean esCapitan, int numeroCamiseta, Equipo equipo) {
+    public Jugador(String nombre, String apellido, long dni, String altura, String posicion, int goles,
+            int partidosJugados, boolean esCapitan, int numeroCamiseta, Equipo equipo) {
         super(nombre, apellido);
         this.dni = dni;
         this.altura = altura;
@@ -88,7 +89,21 @@ public class Jugador extends Persona {
     }
 
     public Jugador() {
-        
+
     }
-    
+
+    @Override
+    public String toString() {
+        String str = "Jugador: " + getNombre() + " " + getApellido() + "\n";
+        str += "DNI: " + dni + "\n";
+        str += "Altura: " + altura + "\n";
+        str += "Posición: " + posicion + "\n";
+        str += "Goles: " + goles + "\n";
+        str += "Partidos Jugados: " + partidosJugados + "\n";
+        str += "Es Capitán: " + esCapitan + "\n";
+        str += "Número de Camiseta: " + numeroCamiseta + "\n";
+        str += "Equipo: " + equipo + "\n";
+        return str;
+    }
+
 }

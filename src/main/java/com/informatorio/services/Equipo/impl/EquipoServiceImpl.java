@@ -73,4 +73,45 @@ public class EquipoServiceImpl implements EquipoService {
         }
         scanner.close();
     }
+
+    public void buscarJugador() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("INGRESE EL NOMBRE DEL JUGADOR: ");
+        String jugadorNombre = scanner.next();
+        System.out.print("INGRESE EL APELLIDO DEL JUGADOR: ");
+        String jugadorApellido = scanner.next();
+        System.out.print("INGRESE LA POSICION DEL JUGADOR: ");
+        String jugadorPosicion = scanner.next();
+        System.out.print("EL JUGADOR ES CAPITAN? (Y/N): ");
+        String jugadorEsCapitanStr = scanner.next();
+        boolean jugadorEsCapitan = Boolean.parseBoolean(jugadorEsCapitanStr);
+        System.out.print("INGRESE EL EQUIPO DEL JUGADOR: ");
+        String jugadorEquipo = scanner.next();
+
+        Jugador jugadorEncontrado = null;
+        for (Equipo equipo : equipos) {
+            for (Jugador jugador : equipo.getJugadores()) {
+                if (jugador.getNombre().equals(jugadorNombre) &&
+                        jugador.getApellido().equals(jugadorApellido) &&
+                        jugador.getPosicion().equals(jugadorPosicion) &&
+                        jugador.getEsCapitan() == jugadorEsCapitan &&
+                        jugador.getEquipo().getNombre().equals(jugadorEquipo)) {
+                    jugadorEncontrado = jugador;
+                    break;
+                }
+            }
+            if (jugadorEncontrado != null) {
+                break;
+            }
+        }
+
+        // Verificar si se encontro el jugador
+        if (jugadorEncontrado != null) {
+            System.out.println("El jugador ha sido encontrado: \n" + jugadorEncontrado.toString());
+        } else {
+            System.out.println("No se encontró el jugador.");
+        }
+
+    }
 }
