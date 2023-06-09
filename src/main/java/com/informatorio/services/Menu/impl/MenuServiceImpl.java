@@ -48,6 +48,15 @@ public class MenuServiceImpl implements MenuService {
                 case 5:
                     archivoService.importarListaJugadores();
                     break;
+                // case 6:
+                // archivoService.exportarListaJugadores();
+                // break;
+                case 7:
+                    bucle = false;
+                    break;
+                default:
+                    System.out.println("\nOpcion no valida. Ingrese una opcion correcta");
+                    break;
 
             }
         }
